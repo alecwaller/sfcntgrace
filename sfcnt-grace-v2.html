@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SFCNT Grace — His Grace Is Sufficient</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0A0A0A;
+      --white: #F5F3EE;
+      --sky: #4AADE8;
+      --gray: rgba(245,243,238,0.45);
+      --border: rgba(245,243,238,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 2.5rem;
+      mix-blend-mode: normal;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.08em;
+      color: var(--white); text-decoration: none;
+      line-height: 1;
+    }
+    .nav-logo span { color: var(--sky); }
+
+    .nav-pills { display: flex; gap: 10px; }
+    .nav-pill {
+      display: flex; align-items: center; gap: 6px;
+      border: 1px solid var(--border);
+      padding: 8px 18px; border-radius: 999px;
+      font-size: 0.72rem; letter-spacing: 0.06em;
+      color: var(--white); text-decoration: none;
+      cursor: pointer; background: rgba(255,255,255,0.04);
+      transition: background 0.2s, border-color 0.2s;
+      font-family: 'DM Sans', sans-serif;
+      border-style: solid;
+    }
+    .nav-pill:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .nav-pill.sky { background: var(--sky); border-color: var(--sky); color: #fff; }
+    .nav-pill.sky:hover { background: #3B9ED4; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3rem 4rem;
+      position: relative; z-index: 2;
+    }
+
+    .hero-meta {
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 8vw, 9rem);
+      line-height: 0.92; letter-spacing: 0.01em;
+      color: var(--white);
+    }
+    .hero-tagline .sky { color: var(--sky); }
+
+    .hero-right {
+      background: #1A1A1A;
+      position: relative; overflow: hidden;
+    }
+    .hero-right-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 1.5rem; padding: 8rem 3rem 3rem;
+    }
+
+    .hero-pill-btn {
+      display: block; width: 100%;
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 16px 28px; text-align: center;
+      font-size: 0.8rem; letter-spacing: 0.08em;
+      color: var(--white); text-decoration: none;
+      background: rgba(255,255,255,0.03);
+      transition: background 0.2s, border-color 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .hero-pill-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); }
+    .hero-pill-btn.filled { background: var(--sky); border-color: var(--sky); }
+    .hero-pill-btn.filled:hover { background: #3B9ED4; }
+
+    .hero-gatherings {
+      margin-top: auto; text-align: center; padding-bottom: 1rem;
+    }
+    .hero-gatherings p {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 4px;
+    }
+    .hero-gatherings strong {
+      font-size: 0.78rem; letter-spacing: 0.06em; color: var(--white); font-weight: 400;
+    }
+
+    .hero-divider { width: 1px; background: var(--border); }
+
+    /* ── BIG TEXT SECTION ── */
+    .big-text-section {
+      padding: 8rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stacked-words {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 13vw, 14rem);
+      line-height: 0.9; letter-spacing: 0.01em;
+      color: var(--white);
+    }
+    .stacked-words .outline {
+      -webkit-text-stroke: 1px var(--white);
+      color: transparent;
+    }
+    .stacked-words .sky { color: var(--sky); }
+
+    .big-text-body {
+      max-width: 480px; margin-top: 3rem;
+      font-size: 1rem; color: var(--gray); line-height: 1.8;
+      font-weight: 300;
+    }
+    .big-text-body strong { color: var(--white); font-weight: 400; }
+
+    .section-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 2rem; font-size: 0.78rem; letter-spacing: 0.08em;
+      color: var(--white); text-decoration: none;
+      border-bottom: 1px solid var(--border); padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .section-link:hover { border-color: var(--sky); color: var(--sky); }
+
+    /* ── PHOTO GRID ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 320px 320px;
+      gap: 3px;
+    }
+    .photo-cell {
+      background: #1C1C1C;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+    .photo-cell.tall { grid-row: span 2; }
+    .photo-cell-label {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray);
+    }
+    .photo-placeholder {
+      width: 100%; height: 100%; background: #1A1A1A;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .photo-cross {
+      width: 32px; height: 32px; position: relative; opacity: 0.2;
+    }
+    .photo-cross::before, .photo-cross::after {
+      content: ''; position: absolute;
+      background: var(--white); border-radius: 1px;
+    }
+    .photo-cross::before { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); }
+    .photo-cross::after { height: 2px; width: 100%; top: 50%; transform: translateY(-50%); }
+
+    /* ── SPLIT SECTION ── */
+    .split-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+    .split-left {
+      padding: 6rem 3rem;
+      border-right: 1px solid var(--border);
+    }
+    .split-right { padding: 6rem 3rem; }
+
+    .split-label {
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 2.5rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .split-label::before {
+      content: '('; color: var(--sky);
+    }
+    .split-label::after {
+      content: ')'; color: var(--sky);
+    }
+
+    .split-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      color: var(--white); margin-bottom: 2rem;
+    }
+    .split-body {
+      font-size: 0.92rem; color: var(--gray); line-height: 1.85; font-weight: 300;
+    }
+    .split-body + .split-body { margin-top: 1rem; }
+    .split-body strong { color: var(--white); font-weight: 400; }
+
+    /* ── MERCH ── */
+    .merch-section {
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .merch-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    .merch-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+    }
+    .merch-card {
+      background: #111; position: relative; overflow: hidden;
+      aspect-ratio: 3/4;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 2rem;
+      transition: background 0.3s;
+    }
+    .merch-card:hover { background: #181818; }
+    .merch-card-bg {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      opacity: 0.06; letter-spacing: 0.05em; color: var(--white);
+      line-height: 1; text-align: center; padding: 1rem;
+    }
+    .merch-card-tag {
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 6px;
+    }
+    .merch-card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--white); letter-spacing: 0.04em; line-height: 1;
+    }
+    .merch-card-desc {
+      font-size: 0.78rem; color: var(--gray); margin-top: 6px; line-height: 1.5;
+      font-weight: 300;
+    }
+    .merch-card-link {
+      margin-top: 1rem; display: inline-block;
+      font-size: 0.72rem; letter-spacing: 0.08em; color: var(--sky);
+      text-decoration: none; border-bottom: 1px solid rgba(74,173,232,0.3);
+      padding-bottom: 2px;
+    }
+
+    /* ── DONATE ── */
+    .donate-section {
+      min-height: 70vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 8rem 3rem;
+      border-top: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .donate-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(74,173,232,0.07) 0%, transparent 70%);
+    }
+    .donate-eyebrow {
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 1.5rem;
+    }
+    .donate-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 11rem);
+      line-height: 0.9; color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .donate-heading span { color: var(--sky); }
+    .donate-sub {
+      font-size: 0.95rem; color: var(--gray); max-width: 420px;
+      line-height: 1.8; margin-bottom: 3rem; font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem 3rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+    }
+    .footer-brand { grid-column: span 1; }
+    .footer-logo-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem; letter-spacing: 0.06em; color: var(--white);
+      margin-bottom: 0.75rem; line-height: 1;
+    }
+    .footer-logo-big span { color: var(--sky); }
+    .footer-tagline {
+      font-size: 0.8rem; color: var(--gray); font-style: italic;
+      font-weight: 300; line-height: 1.6; max-width: 240px;
+    }
+
+    .footer-col-label {
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .footer-col-label::before { content: '('; color: var(--sky); }
+    .footer-col-label::after { content: ')'; color: var(--sky); }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a {
+      font-size: 0.85rem; color: rgba(245,243,238,0.55); text-decoration: none;
+      transition: color 0.2s; font-weight: 300;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      grid-column: span 3;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem; margin-top: 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 0.72rem; color: rgba(245,243,238,0.25); }
+    .footer-verse { font-size: 0.72rem; color: rgba(245,243,238,0.25); font-style: italic; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-pills .nav-pill:first-child { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      .hero-left { padding: 8rem 1.5rem 4rem; }
+      .big-text-section { padding: 5rem 1.5rem; }
+      .photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .photo-cell.tall { grid-row: span 1; }
+      .split-section { grid-template-columns: 1fr; }
+      .split-left { border-right: none; border-bottom: 1px solid var(--border); padding: 4rem 1.5rem; }
+      .split-right { padding: 4rem 1.5rem; }
+      .merch-section { padding: 4rem 1.5rem; }
+      .merch-grid { grid-template-columns: 1fr; }
+      .merch-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      footer { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .footer-bottom { grid-column: span 1; flex-direction: column; gap: 0.5rem; text-align: center; }
+      .donate-section { padding: 5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">SFCNT<span>.</span>GRACE</a>
+    <div class="nav-pills">
+      <a href="#about" class="nav-pill">( learn more )</a>
+      <a href="https://sfcntgrace.square.site" target="_blank" class="nav-pill sky">( shop )</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-meta">501(c)(3) Nonprofit · Est. 2024 · Atlanta, GA</div>
+      <div class="hero-tagline">
+        HIS<br>
+        GRACE<br>
+        IS<br>
+        <span class="sky">SUFFI-<br>CIENT.</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-inner">
+        <a href="#about" class="hero-pill-btn">( learn about sfcnt grace )</a>
+        <a href="https://sfcntgrace.square.site" target="_blank" class="hero-pill-btn filled">( shop the brand )</a>
+        <div class="hero-gatherings">
+          <p>follow us</p>
+          <strong>@sfcntgrace</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOSPEL SECTION -->
+  <section class="big-text-section" id="about">
+    <div class="stacked-words reveal">
+      <div>THE</div>
+      <div class="outline">GOSPEL.</div>
+      <div>NOTHING</div>
+      <div class="sky">LESS.</div>
+    </div>
+    <p class="big-text-body reveal">
+      We exist to restore <strong>faith, purpose, and identity</strong> in young adults through creative expression and community. Inspired by 2 Corinthians 12:9 — our vision is to make His grace our foundation, changing lives one testimony at a time.
+    </p>
+    <a href="#story" class="section-link reveal">more about sfcnt grace →</a>
+  </section>
+
+  <!-- PHOTO GRID -->
+  <div class="photo-grid">
+    <div class="photo-cell tall">
+      <div class="photo-placeholder">
+        <div class="photo-cross"></div>
+      </div>
+      <div class="photo-cell-label">sfcnt grace community</div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-placeholder"><div class="photo-cross"></div></div>
+      <div class="photo-cell-label">living testimony</div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-placeholder"><div class="photo-cross"></div></div>
+      <div class="photo-cell-label">made for more</div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-placeholder"><div class="photo-cross"></div></div>
+      <div class="photo-cell-label">work of grace</div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-placeholder"><div class="photo-cross"></div></div>
+      <div class="photo-cell-label">the brand</div>
+    </div>
+  </div>
+
+  <!-- STORY SPLIT -->
+  <section class="split-section" id="story">
+    <div class="split-left">
+      <div class="split-label reveal">our story</div>
+      <div class="split-heading reveal">BUILT ON<br>GRACE.</div>
+      <p class="split-body reveal">SFCNT Grace started as a conversation between two people 1,000 miles apart — united by faith and a call to serve young adults who felt lost, unseen, or without direction.</p>
+      <p class="split-body reveal">We believe grace isn't just a concept — it's a lifestyle. <strong>You are a living testimony, unfinished and still being worked on.</strong></p>
+      <a href="https://instagram.com/sfcntgrace" target="_blank" class="section-link reveal">follow our journey →</a>
+    </div>
+    <div class="split-right">
+      <div class="split-label reveal">what we stand for</div>
+      <div style="display:flex; flex-direction:column; gap:2.5rem; margin-top:0.5rem;">
+        <div class="reveal">
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.06em; margin-bottom:6px;">01 — Faith</div>
+          <p style="font-size:0.88rem; color:var(--gray); line-height:1.7; font-weight:300;">Helping young adults rediscover and anchor their identity in something greater than themselves.</p>
+        </div>
+        <div class="reveal">
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.06em; margin-bottom:6px;">02 — Creativity</div>
+          <p style="font-size:0.88rem; color:var(--gray); line-height:1.7; font-weight:300;">Using art, design, and storytelling as tools for healing, growth, and purpose-driven living.</p>
+        </div>
+        <div class="reveal">
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.06em; margin-bottom:6px;">03 — Community</div>
+          <p style="font-size:0.88rem; color:var(--gray); line-height:1.7; font-weight:300;">Building a tribe of young adults who carry grace, live with purpose, and lead with love.</p>
+        </div>
+        <div class="reveal">
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.06em; margin-bottom:6px;">04 — Identity</div>
+          <p style="font-size:0.88rem; color:var(--gray); line-height:1.7; font-weight:300;">Empowering the next generation to walk in their calling — not perform for it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section class="merch-section" id="shop">
+    <div class="merch-header reveal">
+      <div>
+        <div class="split-label" style="margin-bottom:0.75rem;">the clothing brand</div>
+        <div class="split-heading" style="font-size:clamp(2.5rem,4vw,4rem); margin-bottom:0;">WEAR YOUR<br>TESTIMONY.</div>
+      </div>
+      <a href="https://sfcntgrace.square.site" target="_blank" class="nav-pill" style="align-self:flex-end;">( view full shop )</a>
+    </div>
+    <div class="merch-grid reveal">
+      <div class="merch-card">
+        <div class="merch-card-bg">WORK OF GRACE</div>
+        <div class="merch-card-tag">hoodie · black / heather grey</div>
+        <div class="merch-card-name">WORK OF GRACE</div>
+        <div class="merch-card-desc">Unfinished, constantly being worked on. 400 GSM cotton.</div>
+        <a href="https://sfcntgrace.square.site" target="_blank" class="merch-card-link">shop now →</a>
+      </div>
+      <div class="merch-card">
+        <div class="merch-card-bg">MADE FOR MORE</div>
+        <div class="merch-card-tag">tee · white / black</div>
+        <div class="merch-card-name">MADE FOR MORE</div>
+        <div class="merch-card-desc">Called to be different. Romans 12:2.</div>
+        <a href="https://sfcntgrace.square.site" target="_blank" class="merch-card-link">shop now →</a>
+      </div>
+      <div class="merch-card">
+        <div class="merch-card-bg">LIVING TESTIMONY</div>
+        <div class="merch-card-tag">hoodie · heather grey</div>
+        <div class="merch-card-name">LIVING TESTIMONY</div>
+        <div class="merch-card-desc">Your story isn't over. Keep going.</div>
+        <a href="https://sfcntgrace.square.site" target="_blank" class="merch-card-link">shop now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section class="donate-section" id="donate">
+    <div class="donate-bg"></div>
+    <div class="donate-eyebrow reveal">( support the mission )</div>
+    <div class="donate-heading reveal">
+      GIVE<br>
+      <span>GRACE.</span>
+    </div>
+    <p class="donate-sub reveal">Your generosity restores lives. Every dollar goes directly into community programming, creative initiatives, and reaching young adults with the message of grace.</p>
+    <a href="https://sfcntgrace.square.site" target="_blank" class="nav-pill sky reveal" style="font-size:0.85rem; padding:14px 36px;">( donate now )</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="footer-logo-big">SFCNT<span>.</span><br>GRACE</div>
+      <p class="footer-tagline">"My grace is sufficient for you, for my power is made perfect in weakness." — 2 Cor. 12:9</p>
+    </div>
+
+    <div>
+      <div class="footer-col-label">quick links</div>
+      <ul class="footer-links">
+        <li><a href="#about">about sfcnt grace</a></li>
+        <li><a href="https://sfcntgrace.square.site" target="_blank">donate</a></li>
+        <li><a href="#shop">shop the brand</a></li>
+        <li><a href="https://sfcntgrace.square.site" target="_blank">square store</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-label">connect</div>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/sfcntgrace" target="_blank">instagram</a></li>
+        <li><a href="#contact">contact us</a></li>
+        <li><a href="#story">our story</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 SFCNT Grace · Registered 501(c)(3) Nonprofit · Atlanta, Georgia</span>
+      <span class="footer-verse">his grace is sufficient.</span>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
